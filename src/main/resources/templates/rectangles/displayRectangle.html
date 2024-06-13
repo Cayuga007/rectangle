@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/changeRectangle.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="rectangle" th:style="'width: ' + ${rec.width} + 'px; height: ' + ${rec.height} + 'px; background-color: ' + ${rec.color}">
+            <span th:text="${rec.name}" class="rectangle-text"></span>
+        </div>
+        <br>
+        <input type="hidden" id="uid" th:value="${rec.uid}">
+        <table>
+            <tr><td>Name</td><td id="name" th:text="${rec.name}" contenteditable="true" oninput="changeRectangle()"></td></tr>
+            <tr><td>Width</td><td id="width" th:text="${rec.width}" contenteditable="true" oninput="changeRectangle()"></td></tr>
+            <tr><td>Height</td><td id="height" th:text="${rec.height}" contenteditable="true" oninput="changeRectangle()"></td></tr>
+            <tr><td>Color</td><td id="color" th:text="${rec.color}" contenteditable="true" oninput="changeRectangle()"></td></tr>
+        </table>
+        <br>
+        <a id="link" hidden="true" method="get">
+            <button>Confirm Changes</button>
+        </a>
+    </main>
+</body>
+</html>
