@@ -5,4 +5,4 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/rectangles-0.0.1-SNAPSHOT.jar rectangles.jar
 EXPOSE 8000
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+ENTRYPOINT ["java", "-jar", "rectangles.jar"]
